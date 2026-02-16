@@ -2,7 +2,7 @@
 
 // Scroll Animation System
 document.addEventListener('DOMContentLoaded', () => {
-    initParticleSystem();
+    // initParticleSystem(); // Disabled - particles not wanted
     initScrollAnimations();
     initParallaxEffects();
     initCounterAnimations();
