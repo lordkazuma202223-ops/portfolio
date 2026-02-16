@@ -286,15 +286,19 @@ body {
 }
 
 /* Tilt Effect for Cards */
-.skill-card,
-.project-card {
-    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease;
+.skill-card {
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 2px solid transparent;
 }
 
-.skill-card:hover,
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(155, 89, 182, 0.3);
+.skill-card:hover {
+    transform: translateY(-15px) perspective(1000px);
+    box-shadow: 0 30px 60px rgba(155, 89, 182, 0.4);
+    border-color: var(--accent);
+}
+
+.project-card {
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease;
 }
 
 /* Scroll Progress Bar */
@@ -918,6 +922,54 @@ section:nth-child(even) {
     border-radius: 4px;
     font-size: 0.75rem;
     font-weight: 600;
+}
+
+/* Enhanced Project Card Hover */
+.project-card:hover {
+    transform: translateY(-15px) perspective(1000px);
+    box-shadow: 0 30px 60px rgba(155, 89, 182, 0.4);
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.1);
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.1);
+}
+
+.project-card:hover .project-content h3 {
+    color: var(--accent);
+}
+
+.project-card:hover .project-content p {
+    color: var(--white);
+}
+
+.project-card:hover .project-tech span {
+    background: var(--accent-light);
+    transform: translateY(-3px);
+    transition: transform 0.3s ease;
+}
+
+/* Project Card Glow */
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(155, 89, 182, 0.3), rgba(142, 68, 173, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.project-card:hover::before {
+    opacity: 1;
 }
 
 /* ==================== CONTACT SECTION ==================== */
