@@ -95,7 +95,7 @@ function createProgressBar() {
         top: '0',
         left: '0',
         height: '3px',
-        background: 'linear-gradient(90deg, #FFD700, #764ba2)',
+        background: 'linear-gradient(90deg, #9b59b6, #8e44ad)',
         zIndex: '9999',
         transition: 'width 0.3s ease'
     });
