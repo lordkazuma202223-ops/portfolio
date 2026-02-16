@@ -1,4 +1,4 @@
-/* Reset & Base Styles */
+/* ==================== RESET & BASE STYLES ==================== */
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +6,15 @@
 }
 
 :root {
-    --primary: #000000;
+    --black: #0a0a0a;
+    --dark-gray: #1a1a1a;
+    --medium-gray: #2a2a2a;
+    --light-gray: #e0e0e0;
+    --white: #ffffff;
+    --yellow: #ffd700;
+    --yellow-dark: #ffaa00;
+    --yellow-light: #fff176;
+    --primary: #0a0a0a;
     --secondary: #ffffff;
     --accent: #FFD700;
     --accent-light: #FFE44D;
@@ -25,8 +33,8 @@ html {
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: var(--secondary);
-    color: var(--primary);
+    background-color: var(--black);
+    color: var(--white);
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -37,16 +45,306 @@ body {
     padding: 0 2rem;
 }
 
-/* Navigation */
+/* ==================== ANIMATED BACKGROUND ==================== */
+
+/* Gradient Background Animation */
+.animated-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(
+        45deg,
+        #667eea 0%,
+        #764ba2 25%,
+        #f093fb 50%,
+        #f5576c 75%,
+        #4facfe 100%
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 20s ease infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Mesh Gradient Overlay */
+.mesh-gradient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.mesh-gradient::before,
+.mesh-gradient::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.5;
+    animation: meshFloat 20s ease-in-out infinite;
+}
+
+.mesh-gradient::before {
+    width: 600px;
+    height: 600px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    top: -200px;
+    right: -200px;
+    animation-delay: 0s;
+}
+
+.mesh-gradient::after {
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    bottom: -150px;
+    left: -150px;
+    animation-delay: -10s;
+}
+
+@keyframes meshFloat {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(50px, -50px) scale(1.1);
+    }
+    50% {
+        transform: translate(0, 50px) scale(1);
+    }
+    75% {
+        transform: translate(-50px, -25px) scale(0.9);
+    }
+}
+
+/* Particle System */
+.particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 215, 0, 0.3);
+    animation: particleFloat linear infinite;
+    pointer-events: none;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Noise Texture Overlay */
+.noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Aurora Effect */
+.aurora {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.aurora-layer {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(102, 126, 234, 0.2) 0%,
+        rgba(240, 147, 251, 0.15) 30%,
+        rgba(79, 172, 254, 0.1) 60%,
+        transparent 100%
+    );
+    animation: auroraMove 30s ease-in-out infinite;
+}
+
+.aurora-layer:nth-child(2) {
+    animation-delay: -10s;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(245, 87, 108, 0.15) 0%,
+        rgba(102, 126, 234, 0.1) 30%,
+        transparent 60%
+    );
+}
+
+.aurora-layer:nth-child(3) {
+    animation-delay: -20s;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(240, 147, 251, 0.2) 0%,
+        rgba(79, 172, 254, 0.15) 40%,
+        transparent 70%
+    );
+}
+
+@keyframes auroraMove {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(5%, 10%) rotate(5deg);
+    }
+    50% {
+        transform: translate(0, 20%) rotate(0deg);
+    }
+    75% {
+        transform: translate(-5%, 10%) rotate(-5deg);
+    }
+}
+
+/* ==================== SCROLL ANIMATIONS ==================== */
+
+/* Reveal on Scroll */
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered Reveal */
+.stagger-item {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.stagger-item.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger Delays */
+.stagger-item:nth-child(1) { transition-delay: 0.1s; }
+.stagger-item:nth-child(2) { transition-delay: 0.2s; }
+.stagger-item:nth-child(3) { transition-delay: 0.3s; }
+.stagger-item:nth-child(4) { transition-delay: 0.4s; }
+.stagger-item:nth-child(5) { transition-delay: 0.5s; }
+.stagger-item:nth-child(6) { transition-delay: 0.6s; }
+
+/* Reveal from Left */
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Reveal from Right */
+.reveal-right {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Scale Reveal */
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-scale.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Text Split Animation */
+.text-reveal {
+    overflow: hidden;
+}
+
+.text-reveal span {
+    display: inline-block;
+    transform: translateY(100%);
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.text-reveal.active span {
+    transform: translateY(0);
+}
+
+/* Parallax */
+.parallax {
+    transform: translateY(0);
+    transition: transform 0.1s linear;
+    will-change: transform;
+}
+
+/* ==================== NAVIGATION ==================== */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
     transition: var(--transition);
 }
 
@@ -66,7 +364,7 @@ body {
 .logo {
     font-size: 1.5rem;
     font-weight: 800;
-    color: var(--primary);
+    color: var(--white);
 }
 
 .logo-text {
@@ -85,7 +383,7 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: var(--primary);
+    color: var(--white);
     font-weight: 500;
     position: relative;
     transition: var(--transition);
@@ -124,14 +422,14 @@ body {
     transition: var(--transition);
 }
 
-/* Hero Section */
+/* ==================== HERO SECTION ==================== */
 .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    background: var(--secondary);
+    background: var(--black);
     overflow: hidden;
     padding: 6rem 2rem;
 }
@@ -171,7 +469,7 @@ body {
 
 .hero-subtitle {
     font-size: 1.25rem;
-    color: var(--gray);
+    color: var(--light-gray);
     margin-bottom: 2rem;
     animation-delay: 0.6s;
 }
@@ -226,19 +524,15 @@ body {
 
 .btn-secondary {
     background: transparent;
-    color: var(--primary);
-    border: 2px solid var(--primary);
+    color: var(--white);
+    border: 2px solid var(--white);
 }
 
 .btn-secondary:hover {
-    background: var(--primary);
-    color: var(--secondary);
+    background: var(--white);
+    color: var(--black);
     transform: translateY(-3px);
     box-shadow: var(--shadow-hover);
-}
-
-.btn-full {
-    width: 100%;
 }
 
 /* Hero Shapes */
@@ -286,7 +580,7 @@ body {
     animation-delay: -10s;
 }
 
-/* Section Styles */
+/* ==================== SECTIONS ==================== */
 section {
     padding: 6rem 0;
 }
@@ -302,13 +596,13 @@ section {
     color: var(--accent);
 }
 
-/* About Section */
+/* ==================== ABOUT SECTION ==================== */
 .about {
-    background: var(--gray-light);
+    background: var(--dark-gray);
 }
 
 .about-card {
-    background: var(--secondary);
+    background: var(--medium-gray);
     border-radius: 20px;
     box-shadow: var(--shadow);
     overflow: hidden;
@@ -339,7 +633,7 @@ section {
 
 .about-text p {
     margin-bottom: 1rem;
-    color: var(--gray-dark);
+    color: var(--light-gray);
 }
 
 .about-stats {
@@ -367,7 +661,7 @@ section {
     letter-spacing: 1px;
 }
 
-/* Skills Section */
+/* ==================== SKILLS SECTION ==================== */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -375,7 +669,7 @@ section {
 }
 
 .skill-card {
-    background: var(--secondary);
+    background: var(--medium-gray);
     border-radius: 20px;
     padding: 2rem;
     text-align: center;
@@ -414,11 +708,11 @@ section {
 .skill-card h3 {
     font-size: 1.25rem;
     margin-bottom: 0.5rem;
-    color: var(--primary);
+    color: var(--white);
 }
 
 .skill-card p {
-    color: var(--gray);
+    color: var(--light-gray);
     margin-bottom: 1.5rem;
     font-size: 0.9rem;
 }
@@ -439,9 +733,9 @@ section {
     transition: width 1.5s ease-out;
 }
 
-/* Projects Section */
+/* ==================== PROJECTS SECTION ==================== */
 .projects {
-    background: var(--gray-light);
+    background: var(--dark-gray);
 }
 
 .projects-grid {
@@ -451,7 +745,7 @@ section {
 }
 
 .project-card {
-    background: var(--secondary);
+    background: var(--medium-gray);
     border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--shadow);
@@ -524,7 +818,7 @@ section {
 }
 
 .project-content p {
-    color: var(--gray);
+    color: var(--light-gray);
     font-size: 0.9rem;
     margin-bottom: 1rem;
 }
@@ -544,7 +838,7 @@ section {
     font-weight: 600;
 }
 
-/* Contact Section */
+/* ==================== CONTACT SECTION ==================== */
 .contact-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -559,7 +853,7 @@ section {
 }
 
 .contact-info p {
-    color: var(--gray);
+    color: var(--light-gray);
     margin-bottom: 2rem;
 }
 
@@ -586,8 +880,8 @@ section {
 }
 
 .social-link {
-    background: var(--gray-light);
-    color: var(--primary);
+    background: var(--medium-gray);
+    color: var(--white);
     padding: 0.75rem 1.5rem;
     border-radius: 50px;
     text-decoration: none;
@@ -631,19 +925,20 @@ section {
     min-height: 150px;
 }
 
-/* Footer */
+/* ==================== FOOTER ==================== */
 .footer {
-    background: var(--primary);
-    color: var(--secondary);
+    background: var(--black);
+    color: var(--white);
     padding: 2rem 0;
     text-align: center;
+    border-top: 1px solid var(--medium-gray);
 }
 
 .footer p {
     opacity: 0.8;
 }
 
-/* Animations */
+/* ==================== ANIMATIONS ==================== */
 @keyframes slideUp {
     from {
         opacity: 0;
@@ -692,28 +987,16 @@ section {
     }
 }
 
-/* Scroll Animations */
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.animate-on-scroll.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Responsive Design */
+/* ==================== RESPONSIVE DESIGN ==================== */
 @media (max-width: 968px) {
     .about-card {
         grid-template-columns: 1fr;
     }
-    
+
     .about-text {
         padding: 2rem;
     }
-    
+
     .contact-content {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -734,33 +1017,33 @@ section {
         transition: var(--transition);
         box-shadow: var(--shadow);
     }
-    
+
     .nav-links.active {
         transform: translateY(0);
     }
-    
+
     .hamburger {
         display: flex;
     }
-    
+
     .hero-buttons {
         flex-direction: column;
         width: 100%;
     }
-    
+
     .hero-buttons .btn {
         width: 100%;
     }
-    
+
     .about-stats {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-    
+
     .skills-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .projects-grid {
         grid-template-columns: 1fr;
     }
@@ -770,15 +1053,15 @@ section {
     .container {
         padding: 0 1rem;
     }
-    
+
     .section-title {
         font-size: 1.75rem;
     }
-    
+
     .hero-title {
         font-size: 2rem;
     }
-    
+
     .stat-number {
         font-size: 2rem;
     }
