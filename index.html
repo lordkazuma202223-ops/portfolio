@@ -934,10 +934,10 @@
     </section>
 
     <!-- About Section -->
-    <section class="about" id="about">
+    <section class="about scroll-animate" id="about">
         <h2 class="section-title">About <span>Me</span></h2>
         <div class="about-grid">
-            <div class="about-image">
+            <div class="about-image" data-parallax="0.1">
                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop" alt="Profile">
             </div>
             <div class="about-text">
@@ -963,35 +963,35 @@
     </section>
 
     <!-- Skills Section -->
-    <section class="skills" id="skills">
+    <section class="skills scroll-animate" id="skills">
         <h2 class="section-title">My <span>Skills</span></h2>
         <div class="skills-grid">
-            <div class="skill-card">
+            <div class="skill-card animate-stagger">
                 <i class="fas fa-code skill-icon"></i>
                 <h3>Frontend Development</h3>
                 <p>HTML, CSS, JavaScript, React, Vue, Next.js, TypeScript</p>
             </div>
-            <div class="skill-card">
+            <div class="skill-card animate-stagger">
                 <i class="fas fa-server skill-icon"></i>
                 <h3>Backend Development</h3>
                 <p>Node.js, Express, Python, Django, PostgreSQL, MongoDB</p>
             </div>
-            <div class="skill-card">
+            <div class="skill-card animate-stagger">
                 <i class="fas fa-paint-brush skill-icon"></i>
                 <h3>UI/UX Design</h3>
                 <p>Figma, Adobe XD, Sketch, Prototyping, User Research</p>
             </div>
-            <div class="skill-card">
+            <div class="skill-card animate-stagger">
                 <i class="fas fa-mobile-alt skill-icon"></i>
                 <h3>Mobile Development</h3>
                 <p>React Native, Flutter, iOS, Android, Cross-platform</p>
             </div>
-            <div class="skill-card">
+            <div class="skill-card animate-stagger">
                 <i class="fas fa-cloud skill-icon"></i>
                 <h3>Cloud & DevOps</h3>
                 <p>AWS, GCP, Docker, Kubernetes, CI/CD Pipelines</p>
             </div>
-            <div class="skill-card">
+            <div class="skill-card animate-stagger">
                 <i class="fas fa-puzzle-piece skill-icon"></i>
                 <h3>Problem Solving</h3>
                 <p>Algorithm Design, System Architecture, Debugging</p>
@@ -1000,10 +1000,10 @@
     </section>
 
     <!-- Projects Section -->
-    <section class="projects" id="projects">
+    <section class="projects scroll-animate" id="projects">
         <h2 class="section-title">My <span>Projects</span></h2>
         <div class="projects-grid">
-            <div class="project-card">
+            <div class="project-card animate-stagger">
                 <div class="project-image">
                     <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="Project 1">
                     <div class="project-overlay">
@@ -1021,7 +1021,7 @@
                     <p>A full-stack e-commerce solution with real-time inventory management and secure payment processing.</p>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card animate-stagger">
                 <div class="project-image">
                     <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="Project 2">
                     <div class="project-overlay">
@@ -1039,7 +1039,7 @@
                     <p>Interactive data visualization dashboard with customizable widgets and real-time updates.</p>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card animate-stagger">
                 <div class="project-image">
                     <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop" alt="Project 3">
                     <div class="project-overlay">
@@ -1061,7 +1061,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact">
+    <section class="contact scroll-animate" id="contact">
         <h2 class="section-title">Get In <span>Touch</span></h2>
         <div class="contact-container">
             <div class="contact-info">
@@ -1112,6 +1112,7 @@
         <p>&copy; 2024 Creative Portfolio. All rights reserved.</p>
     </footer>
 
+    <script src="scroll-animations.js"></script>
     <script src="animations.js"></script>
     <script>
         // Custom Cursor
