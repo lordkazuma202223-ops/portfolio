@@ -11,19 +11,21 @@
     --medium-gray: #2a2a2a;
     --light-gray: #e0e0e0;
     --white: #ffffff;
-    --yellow: #ffd700;
-    --yellow-dark: #ffaa00;
-    --yellow-light: #fff176;
+    --purple: #9b59b6;
+    --purple-light: #bb77d6;
+    --purple-dark: #8e44ad;
+    --violet: #8e44ad;
+    --violet-light: #a86bc9;
     --primary: #0a0a0a;
     --secondary: #ffffff;
-    --accent: #FFD700;
-    --accent-light: #FFE44D;
-    --accent-dark: #CCAC00;
+    --accent: #9b59b6;
+    --accent-light: #bb77d6;
+    --accent-dark: #8e44ad;
     --gray: #888888;
-    --gray-light: #f5f5f5;
-    --gray-dark: #333333;
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.2);
+    --gray-light: #1a1a1a;
+    --gray-dark: #2a2a2a;
+    --shadow: 0 10px 30px rgba(155, 89, 182, 0.2);
+    --shadow-hover: 0 15px 40px rgba(155, 89, 182, 0.3);
     --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -93,14 +95,14 @@ body {
     position: absolute;
     border-radius: 50%;
     filter: blur(80px);
-    opacity: 0.5;
+    opacity: 0.4;
     animation: meshFloat 20s ease-in-out infinite;
 }
 
 .mesh-gradient::before {
     width: 600px;
     height: 600px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #9b59b6, #8e44ad);
     top: -200px;
     right: -200px;
     animation-delay: 0s;
@@ -109,7 +111,7 @@ body {
 .mesh-gradient::after {
     width: 500px;
     height: 500px;
-    background: linear-gradient(135deg, #f093fb, #f5576c);
+    background: linear-gradient(135deg, #bb77d6, #a86bc9);
     bottom: -150px;
     left: -150px;
     animation-delay: -10s;
@@ -145,7 +147,7 @@ body {
 .particle {
     position: absolute;
     border-radius: 50%;
-    background: rgba(255, 215, 0, 0.3);
+    background: rgba(155, 89, 182, 0.4);
     animation: particleFloat linear infinite;
     pointer-events: none;
 }
@@ -200,9 +202,9 @@ body {
     left: -50%;
     background: radial-gradient(
         ellipse at center,
-        rgba(102, 126, 234, 0.2) 0%,
-        rgba(240, 147, 251, 0.15) 30%,
-        rgba(79, 172, 254, 0.1) 60%,
+        rgba(155, 89, 182, 0.25) 0%,
+        rgba(142, 68, 173, 0.18) 30%,
+        rgba(187, 119, 214, 0.12) 60%,
         transparent 100%
     );
     animation: auroraMove 30s ease-in-out infinite;
@@ -212,8 +214,8 @@ body {
     animation-delay: -10s;
     background: radial-gradient(
         ellipse at center,
-        rgba(245, 87, 108, 0.15) 0%,
-        rgba(102, 126, 234, 0.1) 30%,
+        rgba(187, 119, 214, 0.2) 0%,
+        rgba(168, 107, 201, 0.15) 30%,
         transparent 60%
     );
 }
@@ -222,8 +224,8 @@ body {
     animation-delay: -20s;
     background: radial-gradient(
         ellipse at center,
-        rgba(240, 147, 251, 0.2) 0%,
-        rgba(79, 172, 254, 0.15) 40%,
+        rgba(142, 68, 173, 0.22) 0%,
+        rgba(155, 89, 182, 0.16) 40%,
         transparent 70%
     );
 }
@@ -418,7 +420,7 @@ body {
 .hamburger span {
     width: 25px;
     height: 3px;
-    background: var(--primary);
+    background: var(--white);
     transition: var(--transition);
 }
 
@@ -436,7 +438,8 @@ body {
 
 .hero-content {
     text-align: center;
-    z-index: 2;
+    position: relative;
+    z-index: 10;
     max-width: 900px;
 }
 
@@ -555,7 +558,7 @@ body {
 .shape-1 {
     width: 400px;
     height: 400px;
-    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.05));
+    background: linear-gradient(135deg, rgba(155, 89, 182, 0.15), rgba(142, 68, 173, 0.08));
     top: 10%;
     right: 10%;
     animation-delay: 0s;
@@ -564,7 +567,7 @@ body {
 .shape-2 {
     width: 300px;
     height: 300px;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.02));
+    background: linear-gradient(135deg, rgba(187, 119, 214, 0.1), rgba(168, 107, 201, 0.05));
     bottom: 20%;
     left: 10%;
     animation-delay: -5s;
@@ -573,7 +576,7 @@ body {
 .shape-3 {
     width: 200px;
     height: 200px;
-    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 215, 0, 0.08));
+    background: linear-gradient(135deg, rgba(155, 89, 182, 0.2), rgba(142, 68, 173, 0.1));
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -583,6 +586,13 @@ body {
 /* ==================== SECTIONS ==================== */
 section {
     padding: 6rem 0;
+    background: rgba(10, 10, 10, 0.8);
+    position: relative;
+    z-index: 1;
+}
+
+section:nth-child(even) {
+    background: rgba(26, 26, 26, 0.9);
 }
 
 .section-title {
@@ -590,6 +600,9 @@ section {
     font-weight: 800;
     text-align: center;
     margin-bottom: 4rem;
+    color: var(--white);
+    position: relative;
+    z-index: 10;
 }
 
 .section-title .accent {
@@ -609,6 +622,8 @@ section {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0;
+    position: relative;
+    z-index: 5;
 }
 
 .about-image {
@@ -656,7 +671,7 @@ section {
 
 .stat-label {
     font-size: 0.875rem;
-    color: var(--gray);
+    color: var(--light-gray);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -677,6 +692,7 @@ section {
     transition: var(--transition);
     position: relative;
     overflow: hidden;
+    z-index: 5;
 }
 
 .skill-card::before {
@@ -720,7 +736,7 @@ section {
 .skill-bar {
     width: 100%;
     height: 6px;
-    background: var(--gray-light);
+    background: var(--gray-dark);
     border-radius: 3px;
     overflow: hidden;
 }
@@ -750,6 +766,8 @@ section {
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: var(--transition);
+    position: relative;
+    z-index: 5;
 }
 
 .project-card:hover {
@@ -831,7 +849,7 @@ section {
 
 .project-tech span {
     background: var(--accent);
-    color: var(--primary);
+    color: var(--white);
     padding: 0.25rem 0.75rem;
     border-radius: 4px;
     font-size: 0.75rem;
@@ -845,6 +863,8 @@ section {
     gap: 4rem;
     max-width: 1000px;
     margin: 0 auto;
+    position: relative;
+    z-index: 5;
 }
 
 .contact-info h3 {
@@ -905,19 +925,20 @@ section {
 .form-group textarea {
     width: 100%;
     padding: 1rem 1.5rem;
-    border: 2px solid var(--gray-light);
+    border: 2px solid var(--gray-dark);
     border-radius: 10px;
     font-size: 1rem;
     font-family: inherit;
     transition: var(--transition);
-    background: var(--gray-light);
+    background: var(--dark-gray);
+    color: var(--white);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
     border-color: var(--accent);
-    background: var(--secondary);
+    background: var(--medium-gray);
 }
 
 .form-group textarea {

@@ -19,10 +19,10 @@ function initParticleSystem() {
 
     const particleCount = window.innerWidth < 768 ? 30 : 60;
     const colors = [
-        'rgba(255, 215, 0, 0.3)',
-        'rgba(102, 126, 234, 0.3)',
-        'rgba(240, 147, 251, 0.3)',
-        'rgba(79, 172, 254, 0.3)'
+        'rgba(155, 89, 182, 0.4)',
+        'rgba(142, 68, 173, 0.4)',
+        'rgba(187, 119, 214, 0.4)',
+        'rgba(168, 107, 201, 0.4)'
     ];
 
     for (let i = 0; i < particleCount; i++) {
