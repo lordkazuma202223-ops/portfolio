@@ -2,13 +2,13 @@
 
 // Initialize on DOM load
 document.addEventListener('DOMContentLoaded', () => {
-    initParticleSystem();
+    // initParticleSystem(); // Disabled - background elements hidden via CSS
     initScrollAnimations();
     initParallaxEffects();
-    initTextReveal();
+    // initTextReveal(); // Disabled - reveal logic removed
     initMouseEffects();
     initCounterAnimations();
-    initStaggerAnimations();
+    // initStaggerAnimations(); // Disabled - reveal logic removed
 });
 
 /* ==================== PARTICLE SYSTEM ==================== */
