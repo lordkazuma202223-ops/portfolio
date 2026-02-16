@@ -2,31 +2,79 @@
 
 // Scroll Animation System
 document.addEventListener('DOMContentLoaded', () => {
+    initParticleSystem();
     initScrollAnimations();
     initParallaxEffects();
     initCounterAnimations();
     initHoverEffects();
 });
 
+/* ==================== PARTICLE SYSTEM ==================== */
+function initParticleSystem() {
+    const container = document.createElement('div');
+    container.className = 'particles-container';
+    document.body.appendChild(container);
+
+    const particleCount = window.innerWidth < 768 ? 20 : 40;
+    const colors = [
+        'rgba(155, 89, 182, 0.6)',
+        'rgba(142, 68, 173, 0.6)',
+        'rgba(187, 119, 214, 0.6)',
+        'rgba(168, 107, 201, 0.6)'
+    ];
+
+    for (let i = 0; i < particleCount; i++) {
+        createParticle(container, colors);
+    }
+}
+
+function createParticle(container, colors) {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+
+    const size = Math.random() * 6 + 2;
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    const duration = Math.random() * 15 + 10;
+    const delay = Math.random() * 10;
+    const left = Math.random() * 100;
+
+    particle.style.cssText = `
+        width: ${size}px;
+        height: ${size}px;
+        background: ${color};
+        left: ${left}%;
+        animation-duration: ${duration}s;
+        animation-delay: ${delay}s;
+    `;
+
+    container.appendChild(particle);
+
+    // Recreate particle when animation ends
+    setTimeout(() => {
+        particle.remove();
+        createParticle(container, colors);
+    }, (duration + delay) * 1000);
+}
+
 /* ==================== SCROLL ANIMATIONS ==================== */
 function initScrollAnimations() {
     const observerOptions = {
         root: null,
-        rootMargin: '0px',
-        threshold: 0.15 // Trigger when 15% visible
+        rootMargin: '100px', // Trigger 100px before element comes into view
+        threshold: 0.01 // Trigger when 1% visible
     };
 
     const scrollObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate-in');
-                
+
                 // Add stagger delay for child elements
                 const children = entry.target.querySelectorAll('.animate-stagger');
                 children.forEach((child, index) => {
                     setTimeout(() => {
                         child.classList.add('animate-in');
-                    }, index * 100);
+                    }, index * 150); // Increased delay to 150ms
                 });
             }
         });
@@ -35,6 +83,22 @@ function initScrollAnimations() {
     // Observe all scroll-animate elements
     const scrollElements = document.querySelectorAll('.scroll-animate');
     scrollElements.forEach(el => scrollObserver.observe(el));
+
+    // Check for elements already in view on initial load
+    setTimeout(() => {
+        scrollElements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                el.classList.add('animate-in');
+                const children = el.querySelectorAll('.animate-stagger');
+                children.forEach((child, index) => {
+                    setTimeout(() => {
+                        child.classList.add('animate-in');
+                    }, index * 150);
+                });
+            }
+        });
+    }, 100);
 }
 
 /* ==================== PARALLAX EFFECTS ==================== */
