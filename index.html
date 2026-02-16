@@ -19,9 +19,11 @@
             --medium-gray: #2a2a2a;
             --light-gray: #e0e0e0;
             --white: #ffffff;
-            --yellow: #ffd700;
-            --yellow-dark: #ffaa00;
-            --yellow-light: #fff176;
+            --purple: #9b59b6;
+            --purple-dark: #8e44ad;
+            --purple-light: #bb77d6;
+            --violet: #8e44ad;
+            --violet-light: #a86bc9;
         }
 
         html {
@@ -46,7 +48,7 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: var(--yellow);
+            background: var(--purple);
             border-radius: 5px;
         }
 
@@ -68,7 +70,7 @@
 
         nav.scrolled {
             padding: 1rem 5%;
-            box-shadow: 0 5px 30px rgba(255, 215, 0, 0.1);
+            box-shadow: 0 5px 30px rgba(155, 89, 182, 0.1);
         }
 
         .logo {
@@ -87,7 +89,7 @@
             left: 0;
             width: 0;
             height: 3px;
-            background: var(--yellow);
+            background: var(--purple);
             transition: width 0.3s ease;
         }
 
@@ -96,7 +98,7 @@
         }
 
         .logo span {
-            color: var(--yellow);
+            color: var(--purple);
         }
 
         .nav-links {
@@ -122,7 +124,7 @@
             left: 50%;
             width: 0;
             height: 2px;
-            background: var(--yellow);
+            background: var(--purple);
             transition: all 0.3s ease;
             transform: translateX(-50%);
         }
@@ -134,7 +136,7 @@
 
         .nav-links a:hover,
         .nav-links a.active {
-            color: var(--yellow);
+            color: var(--purple);
         }
 
         /* Hamburger Menu */
@@ -182,8 +184,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.08) 0%, transparent 50%);
+            background: radial-gradient(circle at 20% 80%, rgba(155, 89, 182, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(155, 89, 182, 0.08) 0%, transparent 50%);
             animation: pulse 8s ease-in-out infinite;
         }
 
@@ -215,7 +217,7 @@
         }
 
         .hero-title span {
-            color: var(--yellow);
+            color: var(--purple);
             position: relative;
             display: inline-block;
         }
@@ -228,7 +230,7 @@
         }
 
         .hero-subtitle span {
-            color: var(--yellow);
+            color: var(--purple);
             font-weight: 600;
         }
 
@@ -254,14 +256,14 @@
         }
 
         .btn-primary {
-            background: var(--yellow);
+            background: var(--purple);
             color: var(--black);
         }
 
         .btn-primary:hover {
-            background: var(--yellow-dark);
+            background: var(--purple-dark);
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 10px 30px rgba(155, 89, 182, 0.4);
         }
 
         .btn-secondary {
@@ -329,7 +331,7 @@
 
         .scroll-indicator i {
             font-size: 2rem;
-            color: var(--yellow);
+            color: var(--purple);
         }
 
         @keyframes bounce {
@@ -356,13 +358,13 @@
             display: block;
             width: 80px;
             height: 4px;
-            background: var(--yellow);
+            background: var(--purple);
             margin: 1rem auto 0;
             border-radius: 2px;
         }
 
         .section-title span {
-            color: var(--yellow);
+            color: var(--purple);
         }
 
         /* About Section */
@@ -403,7 +405,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            border: 3px solid var(--yellow);
+            border: 3px solid var(--purple);
             border-radius: 20px;
             transform: translate(15px, 15px);
             z-index: -1;
@@ -412,7 +414,7 @@
         .about-text h3 {
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
-            color: var(--yellow);
+            color: var(--purple);
         }
 
         .about-text p {
@@ -438,13 +440,13 @@
 
         .stat-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(155, 89, 182, 0.2);
         }
 
         .stat-number {
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--yellow);
+            color: var(--purple);
             display: block;
         }
 
@@ -482,7 +484,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(155, 89, 182, 0.1), transparent);
             transition: left 0.5s ease;
         }
 
@@ -492,13 +494,13 @@
 
         .skill-card:hover {
             transform: translateY(-10px);
-            border-color: var(--yellow);
+            border-color: var(--purple);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
         .skill-icon {
             font-size: 4rem;
-            color: var(--yellow);
+            color: var(--purple);
             margin-bottom: 1.5rem;
             transition: transform 0.3s ease;
         }
@@ -580,7 +582,7 @@
         .project-link {
             width: 50px;
             height: 50px;
-            background: var(--yellow);
+            background: var(--purple);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -624,7 +626,7 @@
 
         .project-tag {
             background: var(--black);
-            color: var(--yellow);
+            color: var(--purple);
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
             font-size: 0.75rem;
@@ -655,7 +657,7 @@
         .contact-info h3 {
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
-            color: var(--yellow);
+            color: var(--purple);
         }
 
         .contact-info p {
@@ -682,7 +684,7 @@
 
         .contact-item i {
             font-size: 1.5rem;
-            color: var(--yellow);
+            color: var(--purple);
             width: 50px;
             height: 50px;
             background: var(--black);
@@ -729,7 +731,7 @@
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--yellow);
+            border-color: var(--purple);
         }
 
         .form-group textarea {
@@ -760,14 +762,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--yellow);
+            color: var(--purple);
             font-size: 1.2rem;
             text-decoration: none;
             transition: all 0.3s ease;
         }
 
         .social-links a:hover {
-            background: var(--yellow);
+            background: var(--purple);
             color: var(--black);
             transform: translateY(-5px);
         }
@@ -872,7 +874,7 @@
         .cursor {
             width: 20px;
             height: 20px;
-            border: 2px solid var(--yellow);
+            border: 2px solid var(--purple);
             border-radius: 50%;
             position: fixed;
             pointer-events: none;
@@ -883,7 +885,7 @@
 
         .cursor.active {
             transform: scale(2);
-            background: rgba(255, 215, 0, 0.1);
+            background: rgba(155, 89, 182, 0.1);
         }
     </style>
 </head>
